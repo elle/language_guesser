@@ -19,12 +19,12 @@ class Bloom
     hash(item).select { |index| filter[index % size] == 1 }.size == 4
   end
 
-  def seed
-    words.each { |word| add(word) }
-  end
-
   private
   def hash(str)
     Digest::SHA1.digest(str.to_s.downcase.strip).unpack 'vvvv'
+  end
+
+  def seed
+    words.each { |word| add(word) }
   end
 end

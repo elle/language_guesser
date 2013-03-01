@@ -64,5 +64,8 @@ describe LanguageGuesser do
     end
   end
 
-  it 'extends String'
+  it 'extends String' do
+    result = "Un moment s'il vous plaît.".language
+    assert_equal "Language is probably french", result
+  end
 end

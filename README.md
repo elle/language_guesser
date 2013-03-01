@@ -51,6 +51,7 @@ Or install it yourself as:
     'je ne sais pas'.language
 
 or
+
     require 'language_guesser'
     f = File.open('test/fixtures/english.txt', 'r')
     LanguageGuesser.new(f).guess

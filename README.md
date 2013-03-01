@@ -4,10 +4,7 @@
 ## Development and Thoughts Process
 
 There are a few ways one can approach this problem. For example by using ngrams, bloom filter, bayesian filtering or decision trees.
-I decided to implement a very basic bloom filter in this case
-
-* Step 1: have a hash of most common words in a language
-* Step 2: compare string with langauge, and return the highest matching options
+I decided to implement a very basic bloom filter in this case, returning an array of most probable language matches
 
 ## Other decisions:
 
@@ -19,16 +16,16 @@ I decided to implement a very basic bloom filter in this case
 
 * Limiting the usage of external libraries and web services
 * Allowing accented characters for languages such as Spanish
-* Expecting properly typed language: for example, we are not checking for Spanish words that are not accented
+* Expecting properly typed language: for example, I am not checking for Spanish words that are not accented
 * I am not differentiating between Portuguese and Brazilian-Portuguese
 * No learning capabilities for future reuse is implemented in this version
 
 ## Future improvements
 
-* Increase the ammount of common words to check against (as well as the size of the filter)
+* Increase the amount of common words to check against (as well as the size of the filter)
 * Using bits and redis for faster data retrieval
 * Using a different hashing algorithm, again for improved performance.
-* Use a two step elimination to look at the characters unicode ranges to decide what language it is before moving on to applying the filter
+* Using a two step elimination to look at the characters unicode ranges to decide what language it is before moving on to applying the filter
 
 
 ## Installation

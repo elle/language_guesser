@@ -28,6 +28,7 @@ I decided to implement a very basic bloom filter in this case
 * Increase the ammount of common words to check against (as well as the size of the filter)
 * Using bits and redis for faster data retrieval
 * Using a different hashing algorithm, again for improved performance.
+* Use a two step elimination to look at the characters unicode ranges to decide what language it is before moving on to applying the filter
 
 
 ## Installation
@@ -46,7 +47,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'language_guesser'
+    'je ne sais pas'.language
+
+or
+    require 'language_guesser'
+    f = File.open('test/fixtures/english.txt', 'r')
+    LanguageGuesser.new(f).guess
 
 ## Contributing
 

@@ -44,7 +44,7 @@ describe LanguageGuesser do
   LANGS.each do |k, v|
     it "guesses language #{k}" do
       result = LanguageGuesser.new(v).guess
-      show result
+      assert_equal "Language is probably #{k.to_s}", result
     end
   end
 

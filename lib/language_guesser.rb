@@ -2,13 +2,17 @@ Dir[File.expand_path('lib/language_guesser/*.rb')].each { |file| require file }
 
 
 class LanguageGuesser
-  CLEAN_REGEXP = /[0-9]+|-|\(|\)|\[|\]|\{|\}|\?|\!|\'|\"|\.|\,|\;/
+  CLEAN_REGEXP = /[0-9]+|-|\(|\)|\[|\]|\{|\}|\?|\!|\'|\"|\.|\,|\;|\n/
   WHITESPACE_REGEXP = /\s+/
 
   attr_accessor :string
 
-  def initialize(string)
-    @string = string
+  def initialize(input)
+    if input.is_a? String
+      @string = input
+    else
+      @string = input.read
+    end
   end
 
   def to_s

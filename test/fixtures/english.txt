@@ -1,0 +1,7 @@
+A Bloom filter is compact way of testing to see whether you have seen something, requiring less memory than a full list of the items you have seen. The tradeoff is a risk of false positives (Bloom filters never give a false negative) that is a function of the length of the filter and the number of items stored in it. The smaller the filter, and the more items it contains, the greater the risk that it will give a false positive.
+
+The filter consists of two parts, a series of bits and a set of hashing functions. To add a string to a Bloom filter of length m, you run it through each one of the hashing functions, each with range (m), and turn on whatever bit of the filter corresponds to the output of the hashing function.
+
+To see if a string has been seen by the filter, you run it through the same set of hashing functions and XOR the output with the filter. If the XOR gives a non-zero result, you are guaranteed that the string has not been seen before. If the result is zero, you can be certain with a known probability that the string is contained in the filter.
+
+The false positive rate for Bloom filters is determined by the number of hashing functions, the size of the filter, and the number of entries in the filter, given by the approximate formula

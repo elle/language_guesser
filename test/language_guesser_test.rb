@@ -56,7 +56,12 @@ describe LanguageGuesser do
   end
 
   it 'handles short string gracefully'
+
   it 'can load text from a file' do
+    File.open('test/fixtures/english.txt', 'r') do |file|
+      result = LanguageGuesser.new(file).guess
+      assert_equal "Language is probably english", result
+    end
   end
 
   it 'extends String'

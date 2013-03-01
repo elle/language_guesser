@@ -8,11 +8,7 @@ class LanguageGuesser
   attr_accessor :string
 
   def initialize(input)
-    if input.is_a? String
-      @string = input
-    else
-      @string = input.read
-    end
+    @string = input.is_a?(String) ? input : input.read
   end
 
   def to_s

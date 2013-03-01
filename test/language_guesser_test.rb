@@ -55,17 +55,15 @@ describe LanguageGuesser do
     assert_equal "Hmmm, sorry, but we are unsure what language this is", result
   end
 
-  it 'handles short string gracefully'
+  it 'extends String' do
+    result = "Un moment s'il vous plaît.".language
+    assert_equal "Language is probably french", result
+  end
 
   it 'can load text from a file' do
     File.open('test/fixtures/english.txt', 'r') do |file|
       result = LanguageGuesser.new(file).guess
       assert_equal "Language is probably english", result
     end
-  end
-
-  it 'extends String' do
-    result = "Un moment s'il vous plaît.".language
-    assert_equal "Language is probably french", result
   end
 end

@@ -42,8 +42,13 @@ class LanguageGuesser
 
   def format_result(hash)
     result = hash.group_by { |k, v| v }.max.flatten.uniq
-    result.shift # remove first element which is the count
-    "Language is probably #{result.join(', ')}"
+
+    if result.first.zero?
+      "Hmmm, sorry, but we are unsure what language this is"
+    else
+      result.shift # remove first element which is the count
+      "Language is probably #{result.join(', ')}"
+    end
   end
 end
 

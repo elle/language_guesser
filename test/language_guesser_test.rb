@@ -48,6 +48,16 @@ describe LanguageGuesser do
     end
   end
 
-  #it 'displays all options if it cannot make up its mind'
-  #it 'can load text from a file'
+  it 'apologises if cannot detech lang' do
+    swahili = "kusho uMkhandlu wetiCu taseNingizimu Afrika losungulwe ngekulandzela sigaba"
+
+    result = LanguageGuesser.new(swahili).guess
+    assert_equal "Hmmm, sorry, but we are unsure what language this is", result
+  end
+
+  it 'handles short string gracefully'
+  it 'can load text from a file' do
+  end
+
+  it 'extends String'
 end
